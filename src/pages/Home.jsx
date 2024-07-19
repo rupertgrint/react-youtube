@@ -1,16 +1,25 @@
 import React from 'react';
-// import { useState } from 'react';
-// const [videos, setVideos] = useState('')
-// const {
-//   isLoading,
-//   error,
-//   data: videos,
-// } = useQuery(['videos'])
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch('videos/popular.json')
+      .then((res) => res.json())
+      .then((data) => setVideos(data.items))
+      .catch((error) => console.error('Error fetching videos:', error));
+  }, []);
+
   return (
-    <>
-      <p>Home</p>
-    </>
+    <div className='card-group'>
+      {videos.map((video) => (
+        <div key={video.id} className='card'>
+          <h2>{video.snippet.title}</h2>
+          <p>{video.snippet.channelTitle}</p>
+          <p>Published</p>
+        </div>
+      ))}
+    </div>
   );
 }
