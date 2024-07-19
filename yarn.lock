@@ -7875,6 +7875,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"javascript-time-ago@npm:^2.5.10":
+  version: 2.5.10
+  resolution: "javascript-time-ago@npm:2.5.10"
+  dependencies:
+    relative-time-format: "npm:^1.1.6"
+  checksum: 10/6bec246c826bd19440182b3b172d5dd7bcdbc74f028228a6ee95d6751a07f7d77346ba8db716f4804c07100a126db73c7ce3064bbd86f5530d1ed77cdb317b3f
+  languageName: node
+  linkType: hard
+
 "jest-changed-files@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-changed-files@npm:27.5.1"
@@ -9055,6 +9064,13 @@ __metadata:
   dependencies:
     fs-monkey: "npm:^1.0.4"
   checksum: 10/7c9cdb453a6b06e87f11e2dbe6c518fd3c1c1581b370ffa24f42f3fd5b1db8c2203f596e43321a0032963f3e9b66400f2c3cf043904ac496d6ae33eafd0878fe
+  languageName: node
+  linkType: hard
+
+"memoize-one@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "memoize-one@npm:6.0.0"
+  checksum: 10/28feaf7e9a870efef1187df110b876ce42deaf86c955f4111d72d23b96e44eed573469316e6ad0d2cc7fa3b1526978215617b126158015f957242c7493babca9
   languageName: node
   linkType: hard
 
@@ -11183,6 +11199,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-time-ago@npm:^7.3.3":
+  version: 7.3.3
+  resolution: "react-time-ago@npm:7.3.3"
+  dependencies:
+    memoize-one: "npm:^6.0.0"
+    prop-types: "npm:^15.8.1"
+    raf: "npm:^3.4.1"
+  peerDependencies:
+    javascript-time-ago: ^2.3.7
+    react: ">=0.16.8"
+    react-dom: ">=0.16.8"
+  checksum: 10/f5cfd19743fb5b072772ea60b1ad42c441b930165cdd10e616ba9b5fa92be7959141b04cd13889ea3f21962f90166984729c94bf20c3f8b0ab1081c3ddcf8952
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.2.0":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
@@ -11357,6 +11388,13 @@ __metadata:
   version: 0.2.7
   resolution: "relateurl@npm:0.2.7"
   checksum: 10/f5d6ba58f2a5d5076389090600c243a0ba7072bcf347490a09e4241e2427ccdb260b4e22cea7be4f1fcd3c2bf05908b1e0d0bc9605e3199d4ecf37af1d5681fa
+  languageName: node
+  linkType: hard
+
+"relative-time-format@npm:^1.1.6":
+  version: 1.1.6
+  resolution: "relative-time-format@npm:1.1.6"
+  checksum: 10/b14bcca18f8d48c521b716ccb81279ecdc739518a4fb25daf3e60bcbd093cedad9507e4abba43b9fc86b74fef0f72d1bce6bcf99ac1f25730fa42cef3e1b336c
   languageName: node
   linkType: hard
 
@@ -12661,6 +12699,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"timeago.js@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "timeago.js@npm:4.0.2"
+  checksum: 10/30e38e8a82f885d95162e66bf7d9673a14c5fe7aff3f5b3e3d74fe5c431046da23194f1d4ab6bbd259b8d3504b47a0478429c147dee496036701f8b89e5951f3
+  languageName: node
+  linkType: hard
+
 "tmpl@npm:1.0.5":
   version: 1.0.5
   resolution: "tmpl@npm:1.0.5"
@@ -13838,11 +13883,14 @@ __metadata:
     "@testing-library/react": "npm:^13.0.0"
     "@testing-library/user-event": "npm:^13.2.1"
     eslint-config-react-app: "npm:^7.0.1"
+    javascript-time-ago: "npm:^2.5.10"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-icons: "npm:^5.2.1"
     react-router-dom: "npm:^6.24.1"
     react-scripts: "npm:5.0.1"
+    react-time-ago: "npm:^7.3.3"
+    timeago.js: "npm:^4.0.2"
     web-vitals: "npm:^2.1.0"
   languageName: unknown
   linkType: soft
