@@ -5,12 +5,12 @@ import ReactTimeAgo from 'react-time-ago';
 export default function SearchedVideos() {
   const { keyword } = useParams();
   const decodedKeyword = decodeURIComponent(keyword);
-  const [videos, setVideos] = useState([]);
+  const [searchedVideos, setSearchedVideos] = useState([]);
 
   useEffect(() => {
     fetch('/videos/search.json')
       .then((res) => res.json())
-      .then((data) => setVideos(data.items))
+      .then((data) => setSearchedVideos(data.items))
       .catch((error) => console.error('Error fetching videos:', error));
   }, []);
 
@@ -18,7 +18,7 @@ export default function SearchedVideos() {
     <>
       <p>SearchedVideo: {decodedKeyword}</p>
       <div className='card-group'>
-        {videos.map((video) => (
+        {searchedVideos.map((video) => (
           <div key={video.id} className='card'>
             <h2>{video.snippet.title}</h2>
             <p>{video.snippet.channelTitle}</p>
