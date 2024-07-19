@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
+import { useSearch } from '../context/SearchContext';
 
 export default function Navbar() {
-  const [searchInput, setSearchInput] = useState('');
+  const { searchInput, setSearchInput } = useSearch();
+
   const handleChange = (e) => {
-    e.preventDefault();
     setSearchInput(e.target.value);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <nav>
       <Link to='/'>
@@ -18,15 +22,23 @@ export default function Navbar() {
           style={{ height: '40px' }}
         />
       </Link>
-      <input
-        type='text'
-        placeholder='Search...'
-        onChange={handleChange}
-        value={searchInput}
-      />
-      <Link to='/search/:keyword'>
-        <CiSearch />
-      </Link>
+      <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
+        <input
+          type='text'
+          placeholder='Search...'
+          onChange={handleChange}
+          value={searchInput}
+          style={{ marginRight: '8px' }}
+        />
+        <Link to={`/search/${encodeURIComponent(searchInput)}`}>
+          <button
+            type='button'
+            style={{ border: 'none', background: 'none', cursor: 'pointer' }}
+          >
+            <CiSearch />
+          </button>
+        </Link>
+      </form>
       <Link to='/video/:videoId'>Detail</Link>
     </nav>
   );

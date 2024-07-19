@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import SearchedVideos from './pages/SearchedVideos';
 import VideoDetail from './pages/VideoDetail';
+import { SearchProvider } from './context/SearchContext';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <SearchProvider>
+      <RouterProvider router={router} />
+    </SearchProvider>
+  );
 }
 
 export default App;
