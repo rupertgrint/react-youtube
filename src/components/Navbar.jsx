@@ -39,7 +39,6 @@ export default function Navbar() {
           <CiSearch />
         </button>
       </form>
-      <Link to='/video/:videoId'>Detail</Link>
     </nav>
   );
 }
