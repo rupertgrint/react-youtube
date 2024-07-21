@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
 
 export default function SearchedVideos() {
-  const { keyword } = useParams();
-  const decodedKeyword = decodeURIComponent(keyword);
+  // const { keyword } = useParams();
+  // const decodedKeyword = decodeURIComponent(keyword);
   const [searchedVideos, setSearchedVideos] = useState([]);
+
   const navigate = useNavigate();
+
+  const handleClick = (videoId) => {
+    navigate(`/video/${videoId}`);
+  };
 
   useEffect(() => {
     fetch('/data/list_by_keyword.json')
@@ -15,19 +21,14 @@ export default function SearchedVideos() {
       .catch((error) => console.error('Error fetching videos:', error));
   }, []);
 
-  const handleClick = (videoId) => {
-    navigate(`/${videoId}`);
-  };
-
   return (
     <>
-      <p>SearchedVideo: {decodedKeyword}</p>
       <div className='card-group'>
         {searchedVideos.map((video) => (
           <div
-            key={video.snippet.channelTitle}
+            key={video.id}
             className='card'
-            onClick={() => handleClick(video.id.videoId)}
+            onClick={() => handleClick(video.id)}
           >
             <img
               src={video.snippet.thumbnails.medium.url}
