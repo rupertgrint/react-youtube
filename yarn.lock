@@ -12523,7 +12523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.0.2":
+"tailwindcss@npm:^3.0.2, tailwindcss@npm:^3.4.6":
   version: 3.4.6
   resolution: "tailwindcss@npm:3.4.6"
   dependencies:
@@ -13891,6 +13891,7 @@ __metadata:
     react-router-dom: "npm:^6.24.1"
     react-scripts: "npm:5.0.1"
     react-time-ago: "npm:^7.3.3"
+    tailwindcss: "npm:^3.4.6"
     timeago.js: "npm:^4.0.2"
     web-vitals: "npm:^2.1.0"
   languageName: unknown

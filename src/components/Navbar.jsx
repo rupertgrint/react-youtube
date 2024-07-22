@@ -16,29 +16,22 @@ export default function Navbar() {
   };
 
   return (
-    <nav>
+    <nav className='flex flex-row justify-center my-[50px] gap-2'>
       <Link to='/'>
-        <img
-          src='/yt_logo_rgb_light.png'
-          alt='Youtube Logo'
-          style={{ height: '40px' }}
-        />
+        <img className='h-8' src='/yt_logo_rgb_dark.png' alt='Youtube Logo' />
       </Link>
-      <form onSubmit={handleSubmit} style={{ display: 'flex' }}>
+      <form onSubmit={handleSubmit}>
         <input
+          className='w-[450px] h-8 p-2 rounded-sm text-black'
           type='text'
           placeholder='Search...'
           onChange={handleChange}
           value={searchInput}
-          style={{ marginRight: '8px' }}
         />
-        <button
-          type='submit'
-          style={{ border: 'none', background: 'none', cursor: 'pointer' }}
-        >
-          <CiSearch />
-        </button>
       </form>
+      <button type='submit'>
+        <CiSearch className='w-6 h-6 border-none cursor-pointer hover:scale-[110%] transition' />
+      </button>
     </nav>
   );
 }
