@@ -1,10 +1,10 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
-import { useSearch } from '../context/SearchContext';
 
 export default function Header() {
-  const { searchInput, setSearchInput } = useSearch();
+  const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
