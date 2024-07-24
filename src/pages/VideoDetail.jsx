@@ -11,7 +11,6 @@ export default function VideoDetail() {
   const navigate = useNavigate();
 
   const handleClick = (videoId) => {
-    console.log(videoId);
     navigate(`/video/${videoId}`);
   };
 

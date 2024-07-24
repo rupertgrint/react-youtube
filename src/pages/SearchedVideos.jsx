@@ -2,19 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
-import { useSearch } from '../context/SearchContext';
 
 export default function SearchedVideos() {
   // const { keyword } = useParams();
   // const decodedKeyword = decodeURIComponent(keyword);
   const [searchedVideos, setSearchedVideos] = useState([]);
-  const { setSearchInput } = useSearch();
 
   const navigate = useNavigate();
 
   const handleClick = (videoId) => {
     navigate(`/video/${videoId}`);
-    setSearchInput('');
   };
 
   useEffect(() => {
