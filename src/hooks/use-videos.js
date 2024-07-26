@@ -9,6 +9,7 @@ export default function useVideos(keyword) {
   } = useQuery({
     queryKey: ['videos', keyword],
     queryFn: () => getVideoByKeyword(keyword),
+    staleTime: 1000 * 60 * 5,
   });
 
   return { videos, isLoading, error };
