@@ -5,10 +5,10 @@ import ReactTimeAgo from 'react-time-ago';
 
 export default function VideoDetail() {
   const { videoId } = useParams();
-  const [mainVideo, setMainVideo] = useState([]);
+  const [video, setVideo] = useState([]);
   const [relatedVideos, setRelatedVideos] = useState([]);
 
-  const mainVideoUrl = '/data/list_by_video_id.json';
+  const videoUrl = '/data/list_by_video_id.json';
   const relatedVideosUrl = '/data/list_by_channel.json';
 
   const navigate = useNavigate();
@@ -18,10 +18,10 @@ export default function VideoDetail() {
   };
 
   useEffect(() => {
-    fetch(mainVideoUrl)
+    fetch(videoUrl)
       .then((res) => res.json())
       .then((data) => {
-        setMainVideo(data.items[0]);
+        setVideo(data.items[0]);
       })
       .catch((error) => console.error('Error fetching video:', error));
   }, [videoId]);
@@ -37,19 +37,19 @@ export default function VideoDetail() {
 
   return (
     <div className='grid grid-cols-5  grid-rows-3 gap-8 my-10 px-16'>
-      <div className='col-span-4 row-span-1' key={mainVideo.id}>
+      <div className='col-span-4 row-span-1' key={video.id}>
         <img
-          src={mainVideo.snippet?.thumbnails?.maxres?.url || ''}
-          alt={mainVideo.snippet?.title || 'Video thumbnail'}
+          src={video.snippet?.thumbnails?.maxres?.url || ''}
+          alt={video.snippet?.title || 'Video thumbnail'}
         />
         <h2 className='font-semibold text-[20px] text-white'>
-          {mainVideo.snippet?.title || 'Title not available'}
+          {video.snippet?.title || 'Title not available'}
         </h2>
         <p className='text-[18px] text-gray-300'>
-          {mainVideo.snippet?.channelTitle || 'Channel not available'}
+          {video.snippet?.channelTitle || 'Channel not available'}
         </p>
         <p className='h-[40px] text-[16px] text-gray-300 text-ellipsis'>
-          {mainVideo.snippet?.description || 'Description not available'}
+          {video.snippet?.description || 'Description not available'}
         </p>
       </div>
       <div className=''>
