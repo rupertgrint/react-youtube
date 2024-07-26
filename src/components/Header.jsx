@@ -12,7 +12,9 @@ export default function Header() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search/${encodeURIComponent(searchInput)}`);
+    if (searchInput.trim() !== '') {
+      navigate(`/search/${encodeURIComponent(searchInput)}`);
+    }
   };
 
   return (
