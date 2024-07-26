@@ -2,11 +2,26 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
+// import useVideos from '../hooks/useVideos';
 
 export default function VideoDetail() {
   const { videoId } = useParams();
-  const [video, setVideo] = useState([]);
+  const [mainVideo, setMainVideo] = useState([]);
   const [relatedVideos, setRelatedVideos] = useState([]);
+
+  const mainVideoUrl = '/data/list_by_video_id.json';
+  const relatedVideosUrl = '/data/list_by_channel.json';
+
+  // const {
+  //   loading: videoLoading,
+  //   error: videoError,
+  //   videos: mainVideo,
+  // } = useVideos(mainVideoUrl);
+  // const {
+  //   loading: realatedVideosLoading,
+  //   error: relatedVideosError,
+  //   videos: relatedVideos,
+  // } = useVideos(relatedVideosUrl);
 
   const navigate = useNavigate();
 
@@ -15,16 +30,16 @@ export default function VideoDetail() {
   };
 
   useEffect(() => {
-    fetch('/data/list_by_video_id.json')
+    fetch(mainVideoUrl)
       .then((res) => res.json())
       .then((data) => {
-        setVideo(data.items[0]);
+        setMainVideo(data.items[0]);
       })
       .catch((error) => console.error('Error fetching video:', error));
   }, [videoId]);
 
   useEffect(() => {
-    fetch('/data/list_by_channel.json')
+    fetch(relatedVideosUrl)
       .then((res) => res.json())
       .then((data) => {
         setRelatedVideos(data.items);
@@ -32,25 +47,25 @@ export default function VideoDetail() {
       .catch((error) => console.error('Error fetching related videos:', error));
   }, [videoId]);
 
-  if (!video) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading videos...</div>;
+  // }
 
   return (
     <div className='grid grid-cols-5  grid-rows-3 gap-8 my-10 px-16'>
-      <div className='col-span-4 row-span-1' key={video.id}>
+      <div className='col-span-4 row-span-1' key={mainVideo.id}>
         <img
-          src={video.snippet?.thumbnails?.maxres?.url || ''}
-          alt={video.snippet?.title || 'Video thumbnail'}
+          src={mainVideo.snippet?.thumbnails?.maxres?.url || ''}
+          alt={mainVideo.snippet?.title || 'Video thumbnail'}
         />
         <h2 className='font-semibold text-[20px] text-white'>
-          {video.snippet?.title || 'Title not available'}
+          {mainVideo.snippet?.title || 'Title not available'}
         </h2>
         <p className='text-[18px] text-gray-300'>
-          {video.snippet?.channelTitle || 'Channel not available'}
+          {mainVideo.snippet?.channelTitle || 'Channel not available'}
         </p>
         <p className='h-[40px] text-[16px] text-gray-300 text-ellipsis'>
-          {video.snippet?.description || 'Description not available'}
+          {mainVideo.snippet?.description || 'Description not available'}
         </p>
       </div>
       <div className=''>

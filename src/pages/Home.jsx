@@ -1,10 +1,11 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
+import useVideos from '../hooks/useVideos';
 
 export default function Home() {
-  const [videos, setVideos] = useState([]);
+  const { loading, error, videos } = useVideos('data/most_popular.json');
+
   const navigate = useNavigate();
 
   const handleClick = (e, videoId) => {
@@ -12,12 +13,13 @@ export default function Home() {
     navigate(`/video/${videoId}`);
   };
 
-  useEffect(() => {
-    fetch('data/most_popular.json')
-      .then((res) => res.json())
-      .then((data) => setVideos(data.items))
-      .catch((error) => console.error('Error fetching videos:', error));
-  }, []);
+  if (loading) {
+    return <div>Loading videos...</div>;
+  }
+
+  if (error) {
+    return <div>Error: Videos not fetched</div>;
+  }
 
   return (
     <div className='grid grid-cols-5 grid-rows-auto my-10 px-12 gap-3 '>

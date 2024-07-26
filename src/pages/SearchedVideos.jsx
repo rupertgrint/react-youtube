@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useParams } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
+import useVideos from '../hooks/useVideos';
 
 export default function SearchedVideos() {
   // const { keyword } = useParams();
   // const decodedKeyword = decodeURIComponent(keyword);
-  const [searchedVideos, setSearchedVideos] = useState([]);
+
+  const { loading, error, videos } = useVideos('/data/list_by_keyword.json');
 
   const navigate = useNavigate();
 
@@ -14,17 +16,18 @@ export default function SearchedVideos() {
     navigate(`/video/${videoId}`);
   };
 
-  useEffect(() => {
-    fetch('/data/list_by_keyword.json')
-      .then((res) => res.json())
-      .then((data) => setSearchedVideos(data.items))
-      .catch((error) => console.error('Error fetching videos:', error));
-  }, []);
+  if (loading) {
+    return <div>Search result is loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: Cannot fetch searched videos</div>;
+  }
 
   return (
     <>
       <div className='grid grid-cols-5 grid-rows-auto my-10 px-12 gap-3'>
-        {searchedVideos.map((video) => (
+        {videos.map((video) => (
           <div className='overflow-hidden' key={video.id}>
             <img
               className='cursor-pointer hover:scale-105 transition'
