@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
-// import useVideos from '../hooks/useVideos';
 
 export default function VideoDetail() {
   const { videoId } = useParams();
@@ -11,17 +10,6 @@ export default function VideoDetail() {
 
   const mainVideoUrl = '/data/list_by_video_id.json';
   const relatedVideosUrl = '/data/list_by_channel.json';
-
-  // const {
-  //   loading: videoLoading,
-  //   error: videoError,
-  //   videos: mainVideo,
-  // } = useVideos(mainVideoUrl);
-  // const {
-  //   loading: realatedVideosLoading,
-  //   error: relatedVideosError,
-  //   videos: relatedVideos,
-  // } = useVideos(relatedVideosUrl);
 
   const navigate = useNavigate();
 
@@ -46,10 +34,6 @@ export default function VideoDetail() {
       })
       .catch((error) => console.error('Error fetching related videos:', error));
   }, [videoId]);
-
-  // if (loading) {
-  //   return <div>Loading videos...</div>;
-  // }
 
   return (
     <div className='grid grid-cols-5  grid-rows-3 gap-8 my-10 px-16'>
