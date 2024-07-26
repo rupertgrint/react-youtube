@@ -10,7 +10,7 @@ async function getPopularVideos() {
 }
 
 async function getVideosByKeyword(keyword) {
-  return await fetch('/data/list_by_keyword.json')
+  return fetch('/data/list_by_keyword.json')
     .then((res) => res.json())
     .then((data) =>
       data.items.map((item) => ({ ...item, id: item.id.videoId }))
