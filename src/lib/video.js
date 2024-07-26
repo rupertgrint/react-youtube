@@ -1,11 +1,19 @@
-export async function getVideoByKeyword(keyword) {
-  const url =
-    keyword === '' ? 'data/most_popular.json' : '/data/list_by_keyword.json';
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.items;
-  } catch (error) {
-    throw new Error('Error fetching videos');
-  }
+export async function getVideos(keyword) {
+  return keyword ? getVideosByKeyword(keyword) : getPopularVideos();
+}
+
+async function getPopularVideos() {
+  return fetch('/data/most_popular.json')
+    .then((res) => res.json())
+    .then((data) => data.items)
+    .catch(console.error);
+}
+
+async function getVideosByKeyword(keyword) {
+  return await fetch('/data/list_by_keyword.json')
+    .then((res) => res.json())
+    .then((data) =>
+      data.items.map((item) => ({ ...item, id: item.id.videoId }))
+    )
+    .catch(console.error);
 }
