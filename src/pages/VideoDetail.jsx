@@ -5,8 +5,13 @@ import ReactTimeAgo from 'react-time-ago';
 
 export default function VideoDetail() {
   const { videoId } = useParams();
+
   const [video, setVideo] = useState([]);
   const [relatedVideos, setRelatedVideos] = useState([]);
+  const [error, setError] = useState(null);
+
+  const videoUrl = '/data/list_by_video_id.json';
+  const relatedVideosUrl = '/data/list_by_channel.json';
 
   const navigate = useNavigate();
 
@@ -15,25 +20,33 @@ export default function VideoDetail() {
   };
 
   useEffect(() => {
-    fetch('/data/list_by_video_id.json')
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchVideo = async () => {
+      try {
+        const res = await fetch(videoUrl);
+        const data = await res.json();
         setVideo(data.items[0]);
-      })
-      .catch((error) => console.error('Error fetching video:', error));
+      } catch (error) {
+        setError('Fetching video failed');
+      }
+    };
+    fetchVideo();
   }, [videoId]);
 
   useEffect(() => {
-    fetch('/data/list_by_channel.json')
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchRelatedVideos = async () => {
+      try {
+        const res = await fetch(relatedVideosUrl);
+        const data = await res.json();
         setRelatedVideos(data.items);
-      })
-      .catch((error) => console.error('Error fetching related videos:', error));
+      } catch (error) {
+        setError('Fetching related videos failed');
+      }
+    };
+    fetchRelatedVideos();
   }, [videoId]);
 
-  if (!video) {
-    return <div>Loading...</div>;
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
