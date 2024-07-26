@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago';
-import useVideos from '../hooks/useVideos';
+import useVideos from '../hooks/use-videos';
 
 export default function Home() {
   const { keyword } = useParams();
-  const { loading, error, videos } = useVideos(keyword || '');
+  const { isLoading, error, videos } = useVideos(keyword || '');
 
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function Home() {
     navigate(`/video/${videoId}`);
   };
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading videos...</div>;
   }
 
