@@ -1,4 +1,4 @@
-import { getVideoByKeyword } from '../lib/video';
+import { getVideos } from '../lib/video';
 import { useQuery } from '@tanstack/react-query';
 
 export default function useVideos(keyword) {
@@ -8,7 +8,7 @@ export default function useVideos(keyword) {
     isLoading,
   } = useQuery({
     queryKey: ['videos', keyword],
-    queryFn: () => getVideoByKeyword(keyword),
+    queryFn: () => getVideos(keyword),
     staleTime: 1000 * 60 * 5,
   });
 
