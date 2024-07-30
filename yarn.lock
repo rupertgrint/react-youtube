@@ -12717,7 +12717,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"timeago.js@npm:^4.0.2":
+"timeago-react@npm:^3.0.6":
+  version: 3.0.6
+  resolution: "timeago-react@npm:3.0.6"
+  dependencies:
+    timeago.js: "npm:^4.0.0"
+  peerDependencies:
+    react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 10/be9945194eca4ae01fc5d3d15b9d84dcf4d2cf5fe52f7956d8163842bf03d055a6bec3d347b33cf5fc26c88b571edcd4a2cf2dab55442cd1f197abdd339ba2f7
+  languageName: node
+  linkType: hard
+
+"timeago.js@npm:^4.0.0, timeago.js@npm:^4.0.2":
   version: 4.0.2
   resolution: "timeago.js@npm:4.0.2"
   checksum: 10/30e38e8a82f885d95162e66bf7d9673a14c5fe7aff3f5b3e3d74fe5c431046da23194f1d4ab6bbd259b8d3504b47a0478429c147dee496036701f8b89e5951f3
@@ -13911,6 +13922,7 @@ __metadata:
     react-scripts: "npm:5.0.1"
     react-time-ago: "npm:^7.3.3"
     tailwindcss: "npm:^3.4.6"
+    timeago-react: "npm:^3.0.6"
     timeago.js: "npm:^4.0.2"
     web-vitals: "npm:^2.1.0"
   languageName: unknown
