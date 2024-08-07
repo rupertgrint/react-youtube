@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import ReactTimeAgo from 'react-time-ago';
+import TimeAgo from 'timeago-react';
 
 export default function VideoDetail() {
   const { videoId } = useParams();
@@ -85,7 +85,7 @@ export default function VideoDetail() {
               {video.snippet.channelTitle}
             </p>
             <p className='text-[13px] text-gray-300'>
-              <ReactTimeAgo date={video.snippet.publishedAt} locale='en-US' />
+              <TimeAgo datetime={video.snippet.publishedAt} />
             </p>
           </div>
         ))}

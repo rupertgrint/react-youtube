@@ -14,6 +14,7 @@
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
     "react-time-ago": "^7.3.3",
+    "timeago-react": "^3.0.6",
     "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.0"
   },
