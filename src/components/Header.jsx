@@ -18,17 +18,17 @@ export default function Header() {
   };
 
   return (
-    <header className='flex flex-row justify-center my-[50px] gap-2'>
+    <header className='flex flex-row justify-center content-center my-[50px] gap-2'>
       <Link to='/'>
         <img
-          className='h-8'
+          className='h-8 w-full sm:w-full'
           src='/images/yt_logo_rgb_dark.png'
           alt='Youtube Logo'
         />
       </Link>
       <form onSubmit={handleSubmit}>
         <input
-          className='w-[450px] h-8 p-2 rounded-sm text-black'
+          className='w-[25vw] h-8 p-2 md:w-[30vw] lg:w-[40vw] rounded-sm text-black transition-transform'
           type='text'
           placeholder='Search...'
           onChange={handleChange}
@@ -36,7 +36,7 @@ export default function Header() {
         />
       </form>
       <button type='submit'>
-        <CiSearch className='w-6 h-6 border-none cursor-pointer hover:scale-[110%] transition' />
+        <CiSearch className='w-6 h-6 border-none cursor-pointer hover:scale-[110%] transition-transform' />
       </button>
     </header>
   );
