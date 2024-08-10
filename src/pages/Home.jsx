@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='grid grid-cols-5 grid-rows-auto my-10 px-12 gap-3'>
+      <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-rows-auto my-10 px-40 gap-x-2 gap-y-4'>
         {videos.map((video) => (
           <div className='overflow-hidden' key={video.id}>
             <img
