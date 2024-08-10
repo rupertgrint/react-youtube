@@ -28,7 +28,7 @@ export default function Header() {
       </Link>
       <form onSubmit={handleSubmit}>
         <input
-          className='w-[25vw] h-8 p-2 md:w-[30vw] lg:w-[40vw] rounded-sm text-black transition-transform'
+          className='w-40 h-8 p-2 md:w-60 lg:w-96 rounded-sm text-black transition-transform'
           type='text'
           placeholder='Search...'
           onChange={handleChange}
