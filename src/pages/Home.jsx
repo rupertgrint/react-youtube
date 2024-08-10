@@ -34,15 +34,15 @@ export default function Home() {
               onClick={() => handleClick(video.id)}
             />
             <h2
-              className='cursor-pointer font-semibold text-[15px] text-white'
+              className='cursor-pointer font-semibold text-base text-white'
               onClick={() => handleClick(video.id)}
             >
               {video.snippet.title}
             </h2>
-            <p className='text-[14px] text-gray-300'>
+            <p className='text-sm text-gray-300'>
               {video.snippet.channelTitle}
             </p>
-            <p className='text-[14px] text-gray-300'>
+            <p className='text-sm text-gray-300'>
               <TimeAgo datetime={video.snippet.publishedAt} />
             </p>
           </div>

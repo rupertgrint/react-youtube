@@ -50,43 +50,48 @@ export default function VideoDetail() {
   }
 
   return (
-    <div className='grid grid-cols-5  grid-rows-3 gap-8 my-10 px-16'>
-      <div className='col-span-4 row-span-1' key={video.id}>
+    <div className='grid lg:grid-cols-6 lg:grid-rows-3 gap-8 my-10 px-36'>
+      <div className='w-full col-span-4 row-span-1' key={video.id}>
         <img
           src={video.snippet?.thumbnails?.maxres?.url || ''}
           alt={video.snippet?.title || 'Video thumbnail'}
         />
-        <h2 className='font-semibold text-[20px] text-white'>
+        <h2 className='font-semibold text-xl text-white mt-2 mx-3'>
           {video.snippet?.title || 'Title not available'}
         </h2>
-        <p className='text-[18px] text-gray-300'>
+        <p className='text-lg text-gray-300 mt-1.5 mx-3'>
           {video.snippet?.channelTitle || 'Channel not available'}
         </p>
-        <p className='h-[40px] text-[16px] text-gray-300 text-ellipsis'>
+        <p className='text-base text-gray-300 text-ellipsis mt-3 mx-3 line-clamp-3 lg:line-clamp-6'>
           {video.snippet?.description || 'Description not available'}
         </p>
       </div>
-      <div className=''>
+      <div className='col-span-2'>
         {relatedVideos.map((video) => (
-          <div className='py-1 overflow-hidden' key={video.id}>
+          <div
+            className='my-1 grid grid-cols-2 py-1 overflow-hidden'
+            key={video.id}
+          >
             <img
-              className='py-1 cursor-pointer hover:scale-105 transition'
+              className='col-start-1 py-1 cursor-pointer hover:scale-105 transition'
               src={video.snippet.thumbnails.medium.url}
               alt={video.snippet.title}
               onClick={() => handleClick(video.id)}
             />
-            <h2
-              className='font-semibold text-[14px] text-white cursor-pointer'
-              onClick={() => handleClick(video.id)}
-            >
-              {video.snippet.title}
-            </h2>
-            <p className='text-[13px] text-gray-300'>
-              {video.snippet.channelTitle}
-            </p>
-            <p className='text-[13px] text-gray-300'>
-              <TimeAgo datetime={video.snippet.publishedAt} />
-            </p>
+            <div className='mt-1 ml-3'>
+              <h2
+                className='font-semibold text-xs text-white cursor-pointer'
+                onClick={() => handleClick(video.id)}
+              >
+                {video.snippet.title}
+              </h2>
+              <p className='text-xs text-gray-300'>
+                {video.snippet.channelTitle}
+              </p>
+              <p className='text-xs text-gray-300'>
+                <TimeAgo datetime={video.snippet.publishedAt} />
+              </p>
+            </div>
           </div>
         ))}
       </div>
