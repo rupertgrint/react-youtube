@@ -34,7 +34,7 @@ export default function Home() {
               onClick={() => handleClick(video.id)}
             />
             <h2
-              className='cursor-pointer font-semibold text-base text-white'
+              className='cursor-pointer font-semibold text-white'
               onClick={() => handleClick(video.id)}
             >
               {video.snippet.title}
