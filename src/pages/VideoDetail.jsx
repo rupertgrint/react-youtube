@@ -50,7 +50,7 @@ export default function VideoDetail() {
   }
 
   return (
-    <div className='grid lg:grid-cols-6 gap-8 my-10 mx-auto'>
+    <div className='grid lg:grid-cols-6 gap-8 my-4 max-w-6xl mx-auto'>
       <div className='w-full col-span-4 row-span-1' key={video.id}>
         <img
           src={video.snippet?.thumbnails?.maxres?.url || ''}
