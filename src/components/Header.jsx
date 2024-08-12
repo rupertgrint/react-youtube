@@ -18,10 +18,10 @@ export default function Header() {
   };
 
   return (
-    <header className='flex flex-row justify-center content-center my-[50px] gap-2'>
+    <header className='flex flex-row justify-center py-12 gap-2'>
       <Link to='/'>
         <img
-          className='h-8 w-full sm:w-full'
+          className='h-8 w-full'
           src='/images/yt_logo_rgb_dark.png'
           alt='Youtube Logo'
         />
@@ -36,7 +36,7 @@ export default function Header() {
         />
       </form>
       <button type='submit'>
-        <CiSearch className='w-6 h-6 border-none cursor-pointer hover:scale-[110%] transition-transform' />
+        <CiSearch className='w-6 h-6 border-none cursor-pointer hover:scale-[110%]' />
       </button>
     </header>
   );
