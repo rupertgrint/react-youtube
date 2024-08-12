@@ -50,21 +50,23 @@ export default function VideoDetail() {
   }
 
   return (
-    <div className='grid lg:grid-cols-6 lg:grid-rows-3 gap-8 my-10 px-36'>
+    <div className='grid lg:grid-cols-6 gap-8 my-10 mx-auto'>
       <div className='w-full col-span-4 row-span-1' key={video.id}>
         <img
           src={video.snippet?.thumbnails?.maxres?.url || ''}
           alt={video.snippet?.title || 'Video thumbnail'}
         />
-        <h2 className='font-semibold text-xl text-white mt-2 mx-3'>
-          {video.snippet?.title || 'Title not available'}
-        </h2>
-        <p className='text-lg text-gray-300 mt-1.5 mx-3'>
-          {video.snippet?.channelTitle || 'Channel not available'}
-        </p>
-        <p className='text-base text-gray-300 text-ellipsis mt-3 mx-3 line-clamp-3 lg:line-clamp-6'>
-          {video.snippet?.description || 'Description not available'}
-        </p>
+        <div className='mx-3'>
+          <h2 className='font-semibold text-xl text-white mt-2'>
+            {video.snippet?.title || 'Title not available'}
+          </h2>
+          <p className='text-lg text-gray-300 mt-1.5'>
+            {video.snippet?.channelTitle || 'Channel not available'}
+          </p>
+          <p className=' text-gray-300 text-ellipsis mt-3 line-clamp-3 lg:line-clamp-6'>
+            {video.snippet?.description || 'Description not available'}
+          </p>
+        </div>
       </div>
       <div className='col-span-2'>
         {relatedVideos.map((video) => (
@@ -73,7 +75,7 @@ export default function VideoDetail() {
             key={video.id}
           >
             <img
-              className='col-start-1 py-1 cursor-pointer hover:scale-105 transition'
+              className='py-1 cursor-pointer hover:scale-105 transition'
               src={video.snippet.thumbnails.medium.url}
               alt={video.snippet.title}
               onClick={() => handleClick(video.id)}
