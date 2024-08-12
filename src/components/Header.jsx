@@ -28,15 +28,15 @@ export default function Header() {
       </Link>
       <form onSubmit={handleSubmit}>
         <input
-          className='w-40 h-8 p-2 md:w-60 lg:w-96 rounded-sm text-black transition-transform'
+          className='w-40 h-8 p-2 md:w-60 lg:w-96 rounded-sm text-black'
           type='text'
           placeholder='Search...'
           onChange={handleChange}
           value={searchInput}
         />
       </form>
-      <button type='submit'>
-        <CiSearch className='w-6 h-6 border-none cursor-pointer hover:scale-[110%]' />
+      <button type='submit' className='group'>
+        <CiSearch className='w-6 h-6 border-none cursor-pointer group-hover:scale-[110%] transition-transform' />
       </button>
     </header>
   );
