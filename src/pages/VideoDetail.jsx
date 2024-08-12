@@ -71,16 +71,18 @@ export default function VideoDetail() {
       <div className='col-span-2'>
         {relatedVideos.map((video) => (
           <div
-            className='my-1 grid grid-cols-2 py-1 overflow-hidden'
+            className='my-1 grid grid-cols-2 gap-3 py-1 overflow-hidden'
             key={video.id}
           >
-            <img
-              className='py-1 cursor-pointer hover:scale-105 transition'
-              src={video.snippet.thumbnails.medium.url}
-              alt={video.snippet.title}
-              onClick={() => handleClick(video.id)}
-            />
-            <div className='mt-1 ml-3'>
+            <div className='overflow-hidden'>
+              <img
+                className='py-1 cursor-pointer hover:scale-105 transition'
+                src={video.snippet.thumbnails.medium.url}
+                alt={video.snippet.title}
+                onClick={() => handleClick(video.id)}
+              />
+            </div>
+            <div className='mt-1'>
               <h2
                 className='font-semibold text-xs text-white cursor-pointer'
                 onClick={() => handleClick(video.id)}
