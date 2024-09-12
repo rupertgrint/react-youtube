@@ -3,7 +3,7 @@ import { useYoutubeApi } from '../context/YoutubeApiContext';
 import { useQuery } from '@tanstack/react-query';
 
 export default function useVideos() {
-  const keyword = useParams();
+  const { keyword } = useParams();
   const { youtube } = useYoutubeApi();
   const {
     data: videos,
