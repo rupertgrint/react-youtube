@@ -8,7 +8,6 @@ export default class Youtube {
   }
 
   async #searchByKeyword(keyword) {
-    console.log('search', keyword);
     return this.apiClient
       .search({
         params: {
@@ -23,7 +22,6 @@ export default class Youtube {
   }
 
   async #mostPopular() {
-    console.log('popular');
     return this.apiClient
       .videos({
         params: {
@@ -44,11 +42,9 @@ export default class Youtube {
       .then((res) => res.data.items);
   }
 
-  async videoById(videoId) {
+  async channelImgURL(id) {
     return this.apiClient
-      .videos({
-        params: { part: 'snippet', id: videoId },
-      })
-      .then((res) => res.data);
+      .channels({ params: { part: 'snippet', id } })
+      .then((res) => res.data.items[0].snippet.thumbnails.default.url);
   }
 }
