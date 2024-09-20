@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
 
 export default function Header() {
+  const { keyword } = useParams();
   const [searchInput, setSearchInput] = useState('');
   const navigate = useNavigate();
 
@@ -17,6 +18,10 @@ export default function Header() {
     }
   };
 
+  useEffect(() => {
+    setSearchInput(keyword || '');
+  }, [keyword]);
+
   return (
     <header className='flex flex-row justify-center py-12 gap-2'>
       <Link to='/'>
@@ -26,18 +31,18 @@ export default function Header() {
           alt='Youtube Logo'
         />
       </Link>
-      <form onSubmit={handleSubmit}>
+      <form className='flex justify-center pl-2' onSubmit={handleSubmit}>
         <input
-          className='w-40 h-8 p-2 md:w-60 lg:w-96 rounded-sm text-black'
+          className='w-40 h-8 md:w-60 lg:w-96 rounded-sm outline-none text-white bg-black'
           type='text'
           placeholder='Search...'
           onChange={handleChange}
           value={searchInput}
         />
+        <button type='submit' className='bg-zinc-600 group px-2'>
+          <CiSearch className='border-none cursor-pointer group-hover:scale-[120%] transition-transform' />
+        </button>
       </form>
-      <button type='submit' className='group'>
-        <CiSearch className='w-6 h-6 border-none cursor-pointer group-hover:scale-[110%] transition-transform' />
-      </button>
     </header>
   );
 }
