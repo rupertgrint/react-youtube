@@ -34,14 +34,6 @@ export default class Youtube {
       .then((res) => res.data.items);
   }
 
-  async relatedToChannel(channelId) {
-    return this.apiClient
-      .playlists({
-        params: { part: 'snippet', channelId, maxResults: 25 },
-      })
-      .then((res) => res.data.items);
-  }
-
   async channelImgURL(id) {
     return this.apiClient
       .channel({ params: { part: 'snippet', id } })
