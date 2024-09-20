@@ -47,4 +47,10 @@ export default class Youtube {
       .channel({ params: { part: 'snippet', id } })
       .then((res) => res.data.items[0].snippet.thumbnails.default.url);
   }
+
+  async videoById(id) {
+    return this.apiClient
+      .videos({ params: { part: 'snippet', id } })
+      .then((res) => res.data.items[0]);
+  }
 }
