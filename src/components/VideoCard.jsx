@@ -2,10 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import TimeAgo from 'timeago-react';
 
-export default function VideoCard({ video, type }) {
+export default function VideoCard({ video, isList }) {
   const navigate = useNavigate();
   const { title, thumbnails, channelTitle, publishedAt } = video.snippet;
-  const isList = type === 'list';
   const handleClick = (videoId) => {
     navigate(`/video/${videoId}`, { state: { video } });
   };

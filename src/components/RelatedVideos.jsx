@@ -21,7 +21,7 @@ export default function RelatedVideos({ videoId }) {
       {videos && (
         <ul className='my-1 grid grid-cols-1 gap-3 py-1 overflow-hidden'>
           {videos.map((video) => (
-            <VideoCard key={video.id} video={video} type='list' />
+            <VideoCard key={video.id} video={video} isList={true} />
           ))}
         </ul>
       )}

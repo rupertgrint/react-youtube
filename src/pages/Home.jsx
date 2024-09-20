@@ -6,7 +6,6 @@ import VideoCard from '../components/VideoCard';
 export default function Home() {
   const { keyword } = useParams();
   const { isLoading, error, videos } = useVideos(keyword || '');
-  console.log(videos);
 
   if (isLoading) {
     return <div>Loading videos...</div>;
