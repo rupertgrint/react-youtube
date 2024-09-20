@@ -10,7 +10,7 @@ export default function RelatedVideos({ videoId }) {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['videos', videoId],
+    queryKey: ['videos'],
     queryFn: () => youtube.search(),
     staleTime: 1000 * 60 * 5,
   });
