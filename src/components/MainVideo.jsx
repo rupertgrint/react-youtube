@@ -26,12 +26,14 @@ export default function MainVideo({ videoId }) {
   const { title, channelId, channelTitle, description } = video.snippet;
 
   return (
-    <div className='flex flex-col'>
-      <div className='w-full aspect-video'>
+    <div>
+      <div className='aspect-video'>
         <iframe
           id='player'
           type='text/html'
-          className='border-none w-full h-full'
+          width='100%'
+          height='640'
+          className='border-none'
           title={title}
           src={`http://www.youtube.com/embed/${video.id}`}
         />
