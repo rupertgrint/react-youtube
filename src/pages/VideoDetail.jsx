@@ -7,11 +7,11 @@ export default function VideoDetail() {
   const { videoId } = useParams();
 
   return (
-    <section className='grid lg:grid-cols-6 gap-8 my-4 max-w-6xl mx-auto'>
-      <section className='w-full col-span-4 row-span-1' key={videoId}>
+    <section className='grid lg:grid-cols-6 gap-8 my-4 max-w-6xl mx-auto px-6'>
+      <section className='col-span-4' key={videoId}>
         <MainVideo videoId={videoId} />
       </section>
-      <section className='col-span-2'>
+      <section className='col-span-2 '>
         <RelatedVideos />
       </section>
     </section>
