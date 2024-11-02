@@ -8,10 +8,10 @@ export default function VideoDetail() {
 
   return (
     <section className='flex flex-col lg:flex-row px-10 mx-auto'>
-      <section className='basis-4/6' key={videoId}>
+      <section className='lg:basis-4/6' key={videoId}>
         <MainVideo videoId={videoId} />
       </section>
-      <section className='basis-2/6 '>
+      <section className='lg:basis-2/6 '>
         <RelatedVideos />
       </section>
     </section>
