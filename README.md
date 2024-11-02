@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# YouTube Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a YouTube clone application built with React, JavaScript, Tailwind CSS, YouTube Data API, and Axios. It allows users to browse and watch videos, similar to the original YouTube UI. The app is designed with reusable components, context for API handling, and a way to toggle between real and fake YouTube data for testing and development.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Browse videos by most popular or keyword
+- Watch main video and related videos on the Video Detail page
+- View video information, including channel name and video description
+- Responsive design using Tailwind CSS
+- Fake YouTube Client data to avoid hitting YouTube API limits while developing
 
-### `yarn start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React and JavaScript: for building UI and interactivity
+- Tailwind CSS: for styling
+- YouTube Data API: for fetching live data
+- Axios: for handling API requests
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Folder Structure
 
-### `yarn test`
+```
+youtube-clone/
+├── public/
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+├── src/
+│   ├── api/
+│   │   ├── fakeYoutubeClient.js      # Uses saved JSON files to mock API data
+│   │   └── youtubeClient.js          # Handles real API requests
+│   ├── components/
+│   │   ├── ChannelInfo.jsx           # Displays channel info for a video
+│   │   ├── Header.jsx                # Navigation header with search functionality
+│   │   ├── MainVideo.jsx             # Main video display component
+│   │   ├── RelatedVideos.jsx         # Displays a list of related videos
+│   │   └── VideoCard.jsx             # Video card for video previews
+│   ├── context/
+│   │   └── YoutubeApiContext.jsx     # Provides YouTube API context
+│   ├── hooks/
+│   │   └── use-videos.js             # Custom hook for fetching video data
+│   ├── pages/
+│   │   ├── Home.jsx                  # Main page showing popular videos
+│   │   ├── NotFound.jsx              # Fallback page for unknown routes
+│   │   ├── Root.jsx                  # Root layout component
+│   │   └── VideoDetail.jsx           # Page to show video details and related videos
+│   ├── App.js                        # Main application component
+│   ├── index.js                      # Entry point for the React app
+│   └── index.css                     # Base styles
+├── tailwind.config.js                # Tailwind CSS configuration
+├── package.json                      # Project dependencies and scripts
+└── README.md                         # Project README
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## YouTube API Context
 
-### `yarn build`
+The YoutubeApiContext.jsx file allows toggling between real API data and mock data for development. To use the real YouTube API, import youtubeClient; for mock data, import fakeYoutubeClient:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+// YoutubeApiContext.jsx
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+import { createContext, useContext } from 'react';
+import Youtube from '../api/youtube';
+// import FakeYoutubeClient from '../api/fakeYoutubeClient';
+import YoutubeClient from '../api/youtubeClient';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export const YoutubeApiContext = createContext();
 
-### `yarn eject`
+const client = new YoutubeClient(); // Switch to FakeYoutubeClient for mock data
+const youtube = new Youtube(client);
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Setup and Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the Repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+git clone https://github.com/rupertgrint/react-youtube
+cd react-youtube
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Install Dependencies
+```
+yarn install
+```
 
-## Learn More
+### 3. Set Up Environment Variables
+To run the app with the YouTube Data API, create a .env file in the project root and add your API key:
+```
+REACT_APP_YOUTUBE_API_KEY=your_api_key_here
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Start the Development Server
+```
+yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
+- **Browse Videos:** The homepage displays popular videos.
+- **Search Videos:** Use the search bar in the header to find videos by keyword.
+- **Watch and Explore:** Click a video to open the Video Detail page, where related videos are shown.
+- **Mock Data Mode:** Use the fake client to test without API limits by switching to FakeYoutubeClient in YoutubeApiContext.jsx.
 
-### Code Splitting
+## Screenshots
+- **Home Page:** Shows a list of popular videos.
+- **Video Detail Page:** Displays the main video, channel info, and related videos.
+- **Search Functionality:** Search for videos and get relevant results.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
+This project is open-source and available under the MIT License.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
