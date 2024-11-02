@@ -26,7 +26,7 @@ export default function MainVideo({ videoId }) {
   const { title, channelId, channelTitle, description } = video.snippet;
 
   return (
-    <div>
+    <div className='pb-8'>
       <div className='aspect-video'>
         <iframe
           id='player'
