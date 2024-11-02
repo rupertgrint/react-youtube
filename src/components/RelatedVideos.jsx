@@ -19,7 +19,6 @@ export default function RelatedVideos() {
       {isLoading && <div>Videos are loading...</div>}
       {error && <div>Error: Error fetching videos!</div>}
       {videos && (
-        // <ul className='my-1 grid grid-col-1 gap-3 py-1'>
         <ul>
           {videos.map((video) => (
             <VideoCard key={video.id} video={video} isList={true} />
