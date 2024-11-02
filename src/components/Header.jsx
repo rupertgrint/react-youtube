@@ -33,14 +33,17 @@ export default function Header() {
       </Link>
       <form className='flex justify-center pl-2' onSubmit={handleSubmit}>
         <input
-          className='w-40 h-8 md:w-60 lg:w-96 rounded-sm outline-none text-white bg-black'
+          className='w-40 h-8 pl-4 md:w-60 lg:w-96 outline-none text-white bg-black rounded-l-full'
           type='text'
           placeholder='Search...'
           onChange={handleChange}
           value={searchInput}
         />
-        <button type='submit' className='bg-zinc-600 group px-2'>
-          <CiSearch className='border-none cursor-pointer group-hover:scale-[120%] transition-transform' />
+        <button
+          type='submit'
+          className='bg-zinc-600 group px-2  rounded-r-full'
+        >
+          <CiSearch className=' cursor-pointer group-hover:scale-[120%] transition-transform' />
         </button>
       </form>
     </header>
