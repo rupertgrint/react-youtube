@@ -9,7 +9,7 @@ export default function VideoCard({ video, isList }) {
     navigate(`/video/${videoId}`, { state: { video } });
   };
   return (
-    <li className={isList ? 'flex gap-1 m-2' : ''}>
+    <li className={isList ? 'flex pb-3 lg:pl-6' : ''}>
       <div
         className={`${
           isList ? 'w-60 mr-2 flex-shrink-0' : 'w-full'
@@ -22,7 +22,7 @@ export default function VideoCard({ video, isList }) {
           onClick={() => handleClick(video.id)}
         />
       </div>
-      <div className='pt-2'>
+      <div>
         <h2
           className='cursor-pointer font-semibold text-white line-clamp-2'
           onClick={() => handleClick(video.id)}
