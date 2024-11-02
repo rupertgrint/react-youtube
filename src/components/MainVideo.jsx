@@ -32,7 +32,7 @@ export default function MainVideo({ videoId }) {
           id='player'
           type='text/html'
           width='100%'
-          height='640'
+          height='100%'
           className='border-none'
           title={title}
           src={`http://www.youtube.com/embed/${video.id}`}
