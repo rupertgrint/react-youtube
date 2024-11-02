@@ -9,14 +9,8 @@ export default function VideoCard({ video, isList }) {
     navigate(`/video/${videoId}`, { state: { video } });
   };
   return (
-    <li
-      className={
-        isList
-          ? 'grid grid-cols-2 gap-3 py-1 overflow-hidden'
-          : 'overflow-hidden'
-      }
-    >
-      <div className='overflow-hidden'>
+    <li className={isList ? 'grid grid-cols-2 gap-3 py-1' : ''}>
+      <div>
         <img
           className={'cursor-pointer hover:scale-105 transition'}
           src={thumbnails.medium.url}
