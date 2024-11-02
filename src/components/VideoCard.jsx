@@ -16,7 +16,7 @@ export default function VideoCard({ video, isList }) {
         } overflow-hidden`}
       >
         <img
-          className={'cursor-pointer hover:scale-105 transition'}
+          className={'cursor-pointer hover:scale-105 transition rounded-lg'}
           src={thumbnails.medium.url}
           alt={title}
           onClick={() => handleClick(video.id)}

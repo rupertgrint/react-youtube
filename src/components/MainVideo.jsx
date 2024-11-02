@@ -33,7 +33,7 @@ export default function MainVideo({ videoId }) {
           type='text/html'
           width='100%'
           height='100%'
-          className='border-none'
+          className='border-none rounded-lg'
           title={title}
           src={`http://www.youtube.com/embed/${video.id}`}
         />
