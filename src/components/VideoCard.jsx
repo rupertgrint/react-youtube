@@ -9,16 +9,16 @@ export default function VideoCard({ video, isList }) {
     navigate(`/video/${videoId}`, { state: { video } });
   };
   return (
-    <li
-      className={
-        isList
-          ? 'grid grid-cols-2 gap-3 py-1 overflow-hidden'
-          : 'overflow-hidden'
-      }
-    >
-      <div className='overflow-hidden'>
+    <li className={isList ? 'flex pb-3 lg:pl-6' : ''}>
+      <div
+        className={`${
+          isList ? 'w-40 mr-2 flex-shrink-0' : 'w-full'
+        } overflow-hidden`}
+      >
         <img
-          className={'cursor-pointer hover:scale-105 transition'}
+          className={
+            'cursor-pointer hover:scale-105 transition rounded-lg w-full'
+          }
           src={thumbnails.medium.url}
           alt={title}
           onClick={() => handleClick(video.id)}

@@ -26,23 +26,25 @@ export default function MainVideo({ videoId }) {
   const { title, channelId, channelTitle, description } = video.snippet;
 
   return (
-    <>
-      <iframe
-        id='player'
-        type='text/html'
-        width='100%'
-        height='640'
-        style={{ border: 'none' }}
-        title={title}
-        src={`http://www.youtube.com/embed/${video.id}`}
-      />
+    <div className='pb-8'>
+      <div className='aspect-video'>
+        <iframe
+          id='player'
+          type='text/html'
+          width='100%'
+          height='100%'
+          className='border-none rounded-lg'
+          title={title}
+          src={`http://www.youtube.com/embed/${video.id}`}
+        />
+      </div>
       <div className='mx-3'>
         <h2 className='font-semibold text-xl text-white mt-2'>{title}</h2>
         <ChannelInfo id={channelId} name={channelTitle} />
-        <p className=' text-gray-300 text-ellipsis mt-3 line-clamp-3 lg:line-clamp-6'>
+        <p className=' text-gray-300 text-ellipsis mt-3 line-clamp-3 lg:line-clamp-6 text-wrap'>
           {description}
         </p>
       </div>
-    </>
+    </div>
   );
 }

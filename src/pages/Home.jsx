@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-rows-auto my-10 px-40 gap-x-2 gap-y-4'>
+      <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-auto my-10 px-8 gap-x-2 gap-y-4'>
         {videos.map((video) => (
           <VideoCard key={video.id} video={video} />
         ))}
