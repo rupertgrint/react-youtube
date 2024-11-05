@@ -104,8 +104,16 @@ yarn start
 
 ## Screenshots
 - **Home Page:** Shows a list of popular videos.
+<img width="1423" alt="Screen Shot 2024-11-05 at 11 04 52 pm" src="https://github.com/user-attachments/assets/3a36c6ef-3381-40a3-bc0a-1cc93c9a361e">
+
+
 - **Video Detail Page:** Displays the main video, channel info, and related videos.
+<img width="1418" alt="Screen Shot 2024-11-05 at 11 05 18 pm" src="https://github.com/user-attachments/assets/b0ba98ea-ddf6-4e07-b3e2-0352712310de">
+
+
 - **Search Functionality:** Search for videos and get relevant results.
+<img width="1426" alt="Screen Shot 2024-11-05 at 11 06 05 pm" src="https://github.com/user-attachments/assets/8ecca119-02a0-4f3e-b9b1-62e336a179ae">
+
 
 ## License
 This project is open-source and available under the MIT License.
