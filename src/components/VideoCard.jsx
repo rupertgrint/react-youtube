@@ -12,11 +12,13 @@ export default function VideoCard({ video, isList }) {
     <li className={isList ? 'flex pb-3 lg:pl-6' : ''}>
       <div
         className={`${
-          isList ? 'w-60 mr-2 flex-shrink-0' : 'w-full'
+          isList ? 'w-40 mr-2 flex-shrink-0' : 'w-full'
         } overflow-hidden`}
       >
         <img
-          className={'cursor-pointer hover:scale-105 transition rounded-lg'}
+          className={
+            'cursor-pointer hover:scale-105 transition rounded-lg w-full'
+          }
           src={thumbnails.medium.url}
           alt={title}
           onClick={() => handleClick(video.id)}
