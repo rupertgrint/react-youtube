@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanstack/react-query": "^5.51.15",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "axios": "^1.7.5",
+    "javascript-time-ago": "^2.5.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
+    "react-time-ago": "^7.3.3",
+    "timeago-react": "^3.0.6",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -36,6 +44,9 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.1"
-  }
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint-config-react-app": "^7.0.1",
+    "tailwindcss": "^3.4.6"
+  },
+  "packageManager": "yarn@4.3.0+sha512.1606bef7c84bc7d83b8576063de2fd08f7d69f9939015bed800f9585a002390268ecc777e9feeba7e26e9556aef6beaad4806968db2182ab5dd3e955ab3b9a0b"
 }
