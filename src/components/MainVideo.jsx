@@ -35,7 +35,7 @@ export default function MainVideo({ videoId }) {
           height='100%'
           className='border-none rounded-lg'
           title={title}
-          src={`http://www.youtube.com/embed/${video.id}`}
+          src={`https://www.youtube.com/embed/${video.id}`}
         />
       </div>
       <div className='mx-3'>
